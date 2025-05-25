@@ -73,6 +73,72 @@ Client-server chat applications are versatile tools that facilitate real-time co
 
 Client-server chat applications are foundational to real-time communication over networks. They incorporate principles of socket programming, communication protocols, and security mechanisms to provide a seamless user experience. Understanding the basics of client-server chat applications is essential for developers involved in networked application development, as they form the backbone of various collaborative communication systems. As technology evolves, chat applications continue to adapt, incorporating new features and technologies to enhance user interaction and connectivity.
 
+## PROGRAM :
+
+CLIENT
+```
+import socket 
+s = socket.socket() 
+host = input(str('Enter hostname or host IP : ')) port 
+= 8080 
+s.connect((host, port)) 
+print('Connected to chat server') 
+while 1: 
+incoming_message = s.recv(1024) 
+incoming_message = 
+incoming_message.decode() print(' Server : ', 
+incoming_message) print() 
+message = input(str('>> ')) 
+message = 
+message.encode() 
+s.send(message) 
+print('Sent') 
+print() 
+```
+
+SERVER
+```
+import socket 
+s = socket.socket() 
+host = socket.gethostname() 
+print(' Server will start on host : ', 
+host) port = 8080 
+s.bind((host, port)) 
+print() 
+print('Waiting for 
+connection') 
+print() 
+s.listen(1) 
+conn, addr = s.accept() 
+print(addr, ' Has connected to the 
+server') print() 
+while 1: 
+message = 
+input(str('>> ')) 
+message = 
+message.encode(
+ ) 
+conn.send(messa
+ ge) print('Sent') 
+print() 
+incoming_message = conn.recv(1024) 
+incoming_message = 
+incoming_message.decode() 
+print(' Client : ', 
+incoming_message) print() 
+```
+
+## OUTPUT:
+
+CLIENT
+
+![Screenshot 2025-05-25 162748](https://github.com/user-attachments/assets/fde1c40a-ae09-4b87-a7af-4fe839fb27b6)
+
+
+SERVER
+
+![Screenshot 2025-05-25 162812](https://github.com/user-attachments/assets/48658c48-096c-4c4f-8d88-e8b6c24b5eba)
+
 
 ## Result:
 
